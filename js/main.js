@@ -313,7 +313,7 @@ function setupScrollAnimations(isDesktop) {
     });
 
     // Fade up elements
-    gsap.utils.toArray('.about__heading, .about__text, .about__details, .about__skills, .about__image-wrapper, .featured__heading, .filmography__heading, .filmography__category-title, .contact__heading, .contact__info, .contact__buttons, .contact__image-wrapper').forEach(el => {
+    gsap.utils.toArray('.about__heading, .about__text, .about__details, .about__skills, .about__image-wrapper, .featured__heading, .filmography__heading, .filmography__category-title, .gallery__heading, .gallery__item, .contact__heading, .contact__info, .contact__buttons, .contact__image-wrapper').forEach(el => {
         gsap.to(el, {
             scrollTrigger: { trigger: el, ...triggerConfig },
             opacity: 1,

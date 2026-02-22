@@ -1209,6 +1209,11 @@ em {
         z-index: 1100;
     }
 
+    .nav__logo {
+        position: relative;
+        z-index: 1100;
+    }
+
     /* Hero - Mobile */
     .hero {
         height: auto;
@@ -1221,7 +1226,7 @@ em {
         width: 100%;
         height: 60vh;
         right: 0;
-        margin-top: 20px;
+        margin-top: 60px;
     }
 
     .hero__content {
@@ -1270,6 +1275,14 @@ em {
     }
 
     /* About */
+    .about__heading {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .about__text {
+        font-size: 0.85rem;
+    }
+
     .about__grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1301,12 +1314,25 @@ em {
     }
 
     /* Gallery */
+    .gallery__heading {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
     .gallery__grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 
+    .gallery__item {
+        aspect-ratio: auto;
+        height: 200px;
+    }
+
     /* Filmography */
+    .filmography__heading {
+        font-size: clamp(1.4rem, 4.5vw, 1.8rem);
+    }
+
     .filmography__tabs {
         display: flex;
         gap: 0;
@@ -1380,7 +1406,10 @@ em {
     }
 
     .footer__nav {
-        gap: 24px;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 0.7rem;
     }
 
     /* Mobile CTA */
