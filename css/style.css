@@ -1456,11 +1456,12 @@ em {
     }
 
     .footer__nav {
-        gap: 10px;
+        gap: 8px;
         flex-wrap: nowrap;
         justify-content: center;
-        font-size: 0.6rem;
-        letter-spacing: 1px;
+        font-size: 0.5rem;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
     }
 
     /* Mobile CTA */
