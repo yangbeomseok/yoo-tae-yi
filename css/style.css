@@ -180,6 +180,8 @@ em {
     font-weight: 600;
     letter-spacing: 2px;
     color: var(--text-heading);
+    position: relative;
+    z-index: 1100;
 }
 
 .nav__menu {
@@ -1042,8 +1044,14 @@ em {
         display: none;
     }
 
+    .nav__container {
+        padding: 0 20px;
+    }
+
     .nav__hamburger {
         display: flex;
+        position: relative;
+        z-index: 1100;
     }
 
     /* Hero - Mobile */
