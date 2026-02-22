@@ -156,7 +156,7 @@ em {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 1100;
     padding: 20px 0;
     transition: all 0.4s ease;
 }
@@ -721,7 +721,7 @@ em {
     display: block;
     font-family: var(--font-heading);
     font-size: 1rem;
-    color: var(--text-secondary);
+    color: var(--accent);
     letter-spacing: 2px;
     margin-bottom: 8px;
 }
@@ -1159,8 +1159,12 @@ em {
     font-family: var(--font-heading);
     font-size: 0.7rem !important;
     letter-spacing: 2px !important;
+    background: linear-gradient(90deg, var(--accent), #e8d5a3, var(--accent)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
     color: var(--accent) !important;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 /* Mobile CTA */
@@ -1283,6 +1287,18 @@ em {
         font-size: 0.85rem;
     }
 
+    .about__content {
+        text-align: center;
+    }
+
+    .about__detail-item {
+        justify-content: center;
+    }
+
+    .about__skills {
+        justify-content: center;
+    }
+
     .about__grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1294,13 +1310,21 @@ em {
     }
 
     /* Featured */
+    .featured__heading {
+        text-align: center;
+    }
+
+    .featured__container {
+        margin-bottom: 30px;
+    }
+
     .featured__cards {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 
     .featured__card-title {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .featured__card-content {
@@ -1316,6 +1340,7 @@ em {
     /* Gallery */
     .gallery__heading {
         font-size: clamp(1.5rem, 5vw, 2rem);
+        text-align: center;
     }
 
     .gallery__grid {
@@ -1331,6 +1356,8 @@ em {
     /* Filmography */
     .filmography__heading {
         font-size: clamp(1.4rem, 4.5vw, 1.8rem);
+        text-align: center;
+        margin-bottom: 30px;
     }
 
     .filmography__tabs {
@@ -1378,13 +1405,18 @@ em {
         gap: 40px;
     }
 
+    .contact__content {
+        text-align: center;
+        order: 1;
+    }
+
+    .contact__image-wrapper {
+        order: 2;
+    }
+
     .contact__image {
         max-width: 350px;
         margin: 0 auto;
-    }
-
-    .contact__content {
-        text-align: center;
     }
 
     .contact__info {
