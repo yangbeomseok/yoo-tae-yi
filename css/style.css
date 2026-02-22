@@ -19,7 +19,7 @@
     --font-body: 'Noto Sans KR', sans-serif;
 
     /* Spacing */
-    --section-padding: clamp(80px, 10vw, 140px);
+    --section-padding: clamp(50px, 6vw, 80px);
     --container-max: 1200px;
     --container-padding: clamp(20px, 4vw, 40px);
 }
@@ -343,7 +343,7 @@ em {
 /* Text content - left side, overlapping photo */
 .hero__content {
     position: absolute;
-    left: clamp(80px, 15vw, 220px);
+    left: clamp(70px, 14vw, 200px);
     top: 50%;
     transform: translateY(-50%);
     z-index: 3;
@@ -360,7 +360,7 @@ em {
 
 .hero__name {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 3.2vw, 2.9rem);
+    font-size: clamp(1.9rem, 3vw, 2.7rem);
     font-weight: 300;
     line-height: 1.3;
     color: var(--text-primary);
@@ -393,7 +393,7 @@ em {
 /* Stats - right side */
 .hero__stats {
     position: absolute;
-    right: clamp(80px, 14vw, 200px);
+    right: clamp(70px, 13vw, 185px);
     top: 50%;
     transform: translateY(-50%);
     z-index: 3;
@@ -641,55 +641,47 @@ em {
 }
 
 .featured__cards {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
 }
 
 .featured__card {
     position: relative;
-    min-height: 400px;
+    aspect-ratio: 2 / 3;
     display: flex;
     align-items: flex-end;
     overflow: hidden;
     cursor: default;
+    border-radius: 4px;
 }
 
 .featured__card-bg {
     position: absolute;
     inset: 0;
-    transition: transform 0.8s ease;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s ease, opacity 0.6s ease;
 }
 
-.featured__card-bg--1 {
-    background:
-        linear-gradient(135deg, rgba(42, 31, 21, 0.92) 0%, rgba(26, 20, 16, 0.85) 50%, rgba(13, 10, 7, 0.95) 100%),
-        url('../assets/images/profile2.png');
-    background-size: cover;
-    background-position: center 20%;
-    filter: grayscale(0.5);
-}
-
-.featured__card-bg--2 {
-    background:
-        linear-gradient(135deg, rgba(31, 34, 21, 0.9) 0%, rgba(26, 20, 16, 0.82) 50%, rgba(10, 13, 7, 0.95) 100%),
-        url('../assets/images/taeyiprofile.png');
-    background-size: cover;
-    background-position: center 15%;
-    filter: grayscale(0.5);
-}
-
-.featured__card-bg--3 {
-    background:
-        linear-gradient(135deg, rgba(21, 25, 42, 0.92) 0%, rgba(26, 20, 16, 0.85) 50%, rgba(7, 10, 13, 0.95) 100%),
-        url('../assets/images/profile1.png');
-    background-size: cover;
-    background-position: center 20%;
-    filter: grayscale(0.5);
+.featured__card-bg--hover {
+    opacity: 0;
+    z-index: 0;
 }
 
 .featured__card:hover .featured__card-bg {
     transform: scale(1.03);
+}
+
+.featured__card--has-hover:hover .featured__card-bg--hover {
+    opacity: 1;
+}
+
+.featured__card--has-hover:hover > .featured__card-bg:not(.featured__card-bg--hover) {
+    opacity: 0;
 }
 
 .featured__card-overlay {
@@ -702,9 +694,7 @@ em {
 .featured__card-content {
     position: relative;
     z-index: 2;
-    padding: 60px var(--container-padding);
-    max-width: var(--container-max);
-    margin: 0 auto;
+    padding: 20px;
     width: 100%;
 }
 
@@ -738,11 +728,11 @@ em {
 
 .featured__card-title {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
     font-weight: 400;
     color: var(--text-heading);
-    line-height: 1.1;
-    margin-bottom: 8px;
+    line-height: 1.2;
+    margin-bottom: 6px;
 }
 
 .featured__card-platform {
@@ -786,8 +776,8 @@ em {
 
 .filmography__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
 }
 
 .filmography__category-title {
@@ -848,6 +838,170 @@ em {
     font-size: 0.75rem;
     color: var(--accent);
     letter-spacing: 0.5px;
+}
+
+/* ================================================
+   GALLERY SECTION
+   ================================================ */
+.gallery {
+    padding: var(--section-padding) 0;
+    background: var(--bg-primary);
+}
+
+.gallery__container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.gallery__heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: var(--text-heading);
+    margin-bottom: 48px;
+}
+
+.gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 16px;
+}
+
+.gallery__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    aspect-ratio: 3 / 4;
+}
+
+.gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s ease;
+    filter: grayscale(0.3);
+}
+
+.gallery__item:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0);
+}
+
+.gallery__item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 50%);
+    opacity: 1;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.gallery__item:hover::after {
+    opacity: 0;
+}
+
+.gallery__item {
+    cursor: pointer;
+}
+
+/* ================================================
+   LIGHTBOX
+   ================================================ */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox--active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox__img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+    animation: lightboxZoom 0.3s ease;
+}
+
+@keyframes lightboxZoom {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox__close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 10000;
+    transition: color 0.3s ease;
+    line-height: 1;
+}
+
+.lightbox__close:hover {
+    color: var(--accent);
+}
+
+.lightbox__prev,
+.lightbox__next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 20px;
+    transition: color 0.3s ease;
+    z-index: 10000;
+}
+
+.lightbox__prev { left: 10px; }
+.lightbox__next { right: 10px; }
+
+.lightbox__prev:hover,
+.lightbox__next:hover {
+    color: var(--accent);
+}
+
+.filmography__play-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 6px;
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.filmography__play-btn:hover {
+    color: var(--accent-hover);
+}
+
+.lightbox__video {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 4px;
+    animation: lightboxZoom 0.3s ease;
 }
 
 /* ================================================
@@ -1027,8 +1181,9 @@ em {
         font-size: 2.5rem;
     }
 
-    .featured__card {
-        min-height: 350px;
+    .featured__cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
     }
 
     .filmography__grid {
@@ -1126,12 +1281,29 @@ em {
     }
 
     /* Featured */
-    .featured__card {
-        min-height: 300px;
+    .featured__cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
 
     .featured__card-title {
-        font-size: clamp(2rem, 8vw, 3rem);
+        font-size: 1.1rem;
+    }
+
+    .featured__card-content {
+        padding: 14px;
+    }
+
+    .featured__card-badge {
+        font-size: 0.55rem;
+        padding: 3px 8px;
+        margin-bottom: 8px;
+    }
+
+    /* Gallery */
+    .gallery__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
 
     /* Filmography */
@@ -1273,12 +1445,17 @@ em {
         font-size: 0.85rem;
     }
 
-    .featured__card {
-        min-height: 260px;
+    .featured__cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .featured__card-title {
+        font-size: 1rem;
     }
 
     .featured__card-content {
-        padding: 40px var(--container-padding);
+        padding: 10px;
     }
 
     .contact__buttons {
