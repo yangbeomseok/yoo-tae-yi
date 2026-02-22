@@ -469,3 +469,47 @@ function closeVideoLightbox(event) {
         document.body.style.overflow = '';
     }
 }
+
+
+/* ================================================
+   PHONE NUMBER LOCK
+   ================================================ */
+function unlockPhone(el) {
+    // Already unlocked this session
+    if (sessionStorage.getItem('phoneUnlocked') === 'true') {
+        revealAllPhones();
+        return;
+    }
+
+    const pwd = prompt('비밀번호를 입력하세요');
+    if (pwd === null) return; // cancelled
+
+    if (pwd === '3108') {
+        sessionStorage.setItem('phoneUnlocked', 'true');
+        revealAllPhones();
+    } else {
+        alert('비밀번호가 틀렸습니다.');
+    }
+}
+
+function revealAllPhones() {
+    document.querySelectorAll('.phone-locked').forEach(el => {
+        el.classList.remove('phone-locked');
+        el.onclick = null;
+        // Update display text
+        const span = el.querySelector('span');
+        if (span) {
+            span.textContent = '010-9833-1268';
+        } else {
+            el.textContent = '010-9833-1268';
+        }
+        el.href = 'tel:010-9833-1268';
+    });
+}
+
+// Auto-reveal if already unlocked this session
+document.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem('phoneUnlocked') === 'true') {
+        revealAllPhones();
+    }
+});

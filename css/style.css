@@ -1001,6 +1001,16 @@ em {
     cursor: pointer;
 }
 
+.phone-locked {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.phone-locked:hover {
+    opacity: 1;
+}
+
 .filmography__play-btn:hover {
     color: var(--accent-hover);
 }
