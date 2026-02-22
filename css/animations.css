@@ -193,14 +193,69 @@
     opacity: 1;
 }
 
+/* ---- Text Clip Reveal ---- */
+.anim-clip-reveal {
+    clip-path: inset(100% 0 0 0);
+}
+
+/* ---- Image Curtain Reveal ---- */
+.anim-curtain {
+    position: relative;
+    overflow: hidden;
+    --curtain: 100%;
+    --curtain-out: 0%;
+}
+
+.anim-curtain::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--curtain-out);
+    right: var(--curtain);
+    background: var(--accent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* ---- Divider Expand ---- */
+.anim-divider {
+    position: relative;
+    --divider-width: 0%;
+    border-bottom: none !important;
+}
+
+.anim-divider::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: var(--divider-width);
+    height: 1px;
+    background: var(--accent);
+    transform: translateX(-50%);
+}
+
 /* ---- Reduced Motion ---- */
 @media (prefers-reduced-motion: reduce) {
     .anim-fade,
     .anim-slide,
     .anim-wipe,
+    .anim-clip-reveal,
     .hero__name-line,
     .hero__photo {
         opacity: 1;
+        transform: none;
+        clip-path: none;
+    }
+
+    .anim-curtain::before {
+        display: none;
+    }
+
+    .anim-divider::after {
+        width: 100%;
+        left: 0;
         transform: none;
     }
 

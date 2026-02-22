@@ -43,9 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function showAllElements() {
-    document.querySelectorAll('.anim-fade, .anim-slide, .anim-wipe, .hero__name-line, .hero__photo').forEach(el => {
+    document.querySelectorAll('.anim-fade, .anim-slide, .anim-wipe, .anim-clip-reveal, .hero__name-line, .hero__photo').forEach(el => {
         el.style.opacity = '1';
         el.style.transform = 'none';
+        el.style.clipPath = 'none';
+    });
+    document.querySelectorAll('.anim-curtain').forEach(el => {
+        el.style.setProperty('--curtain', '0%');
+        el.style.setProperty('--curtain-out', '100%');
+    });
+    document.querySelectorAll('.anim-divider').forEach(el => {
+        el.style.setProperty('--divider-width', '100%');
     });
     // Set stat numbers to their target values
     document.querySelectorAll('.hero__stat-number').forEach(el => {
@@ -312,8 +320,8 @@ function setupScrollAnimations(isDesktop) {
         });
     });
 
-    // Fade up elements
-    gsap.utils.toArray('.about__heading, .about__text, .about__details, .about__skills, .about__image-wrapper, .featured__heading, .filmography__heading, .filmography__category-title, .gallery__heading, .gallery__item, .contact__heading, .contact__info, .contact__buttons, .contact__image-wrapper').forEach(el => {
+    // Fade up elements (standard)
+    gsap.utils.toArray('.about__text, .about__details, .about__skills, .about__image-wrapper, .filmography__category-title, .gallery__item, .contact__info, .contact__buttons, .contact__image-wrapper').forEach(el => {
         gsap.to(el, {
             scrollTrigger: { trigger: el, ...triggerConfig },
             opacity: 1,
@@ -321,6 +329,49 @@ function setupScrollAnimations(isDesktop) {
             duration: 0.8,
             ease: 'power2.out'
         });
+    });
+
+    // ---- TEXT CLIP REVEAL ---- //
+    gsap.utils.toArray('.anim-clip-reveal').forEach(el => {
+        gsap.to(el, {
+            scrollTrigger: { trigger: el, ...triggerConfig },
+            clipPath: 'inset(0% 0 0 0)',
+            duration: 1,
+            ease: 'power3.out'
+        });
+    });
+
+    // ---- IMAGE CURTAIN REVEAL ---- //
+    gsap.utils.toArray('.anim-curtain').forEach(el => {
+        const overlay = el.querySelector(':before') || el;
+        const tl = gsap.timeline({
+            scrollTrigger: { trigger: el, ...triggerConfig }
+        });
+        // Phase 1: Curtain slides in covering image (right to left reveal)
+        tl.fromTo(el, { '--curtain': '100%' }, {
+            '--curtain': '0%',
+            duration: 0.6,
+            ease: 'power2.in'
+        });
+        // Phase 2: Curtain slides out revealing image
+        tl.to(el, {
+            '--curtain-out': '100%',
+            duration: 0.6,
+            ease: 'power2.out'
+        });
+    });
+
+    // ---- DIVIDER EXPAND ---- //
+    gsap.utils.toArray('.anim-divider').forEach(el => {
+        gsap.fromTo(el,
+            { '--divider-width': '0%' },
+            {
+                scrollTrigger: { trigger: el, ...triggerConfig },
+                '--divider-width': '100%',
+                duration: 1.2,
+                ease: 'power2.out'
+            }
+        );
     });
 
     // Featured cards - stagger
@@ -361,23 +412,6 @@ function setupScrollAnimations(isDesktop) {
                 },
                 y: -40,
                 ease: 'none'
-            });
-        }
-
-        // Contact image clip open
-        const contactImage = document.querySelector('.contact__image');
-        if (contactImage) {
-            gsap.fromTo(contactImage, {
-                clipPath: 'inset(10% 10% 10% 10%)'
-            }, {
-                scrollTrigger: {
-                    trigger: '.contact',
-                    start: 'top 70%',
-                    toggleActions: 'play none none none'
-                },
-                clipPath: 'inset(0% 0% 0% 0%)',
-                duration: 1.2,
-                ease: 'power3.out'
             });
         }
     }
