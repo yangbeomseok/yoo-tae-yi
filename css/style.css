@@ -390,10 +390,9 @@ em {
     flex-wrap: wrap;
 }
 
-.hero__cta-contact {
+.hero__cta-break {
     flex-basis: 100%;
-    text-align: center;
-    justify-content: center;
+    height: 0;
 }
 
 /* Stats - right side */
