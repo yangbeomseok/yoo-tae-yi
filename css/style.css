@@ -1235,6 +1235,14 @@ em {
         z-index: 1100;
     }
 
+    .nav__lang--mobile {
+        display: block;
+    }
+
+    .lang-fixed {
+        display: none;
+    }
+
     .nav__logo {
         position: relative;
         z-index: 1100;
@@ -1747,9 +1755,11 @@ em {
 /* ================================================
    LANGUAGE TOGGLE
    ================================================ */
-.nav__lang {
+/* Mobile: inside nav, next to hamburger */
+.nav__lang--mobile {
+    display: none;
     font-family: var(--font-body);
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     letter-spacing: 2px;
     color: var(--accent);
     border: 1px solid var(--accent);
@@ -1758,12 +1768,31 @@ em {
     cursor: pointer;
     transition: all 0.3s ease;
     background: transparent;
-    margin-left: 20px;
     position: relative;
     z-index: 1100;
+    margin-right: 12px;
 }
 
-.nav__lang:hover {
+/* PC: fixed bottom-right */
+.lang-fixed {
+    position: fixed;
+    bottom: 90px;
+    right: 76px;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 6px 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 800;
+}
+
+.lang-fixed:hover {
     background: var(--accent);
     color: var(--bg-primary);
 }

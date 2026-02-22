@@ -673,9 +673,14 @@ const translations = {
 };
 
 function toggleLang() {
-    const btn = document.getElementById('langToggle');
     currentLang = currentLang === 'ko' ? 'en' : 'ko';
-    btn.textContent = currentLang === 'ko' ? 'EN' : 'KR';
+    const label = currentLang === 'ko' ? 'EN' : 'KR';
+
+    // Update both toggle buttons
+    const pcBtn = document.getElementById('langToggle');
+    const mobileBtn = document.getElementById('langToggleMobile');
+    if (pcBtn) pcBtn.textContent = label;
+    if (mobileBtn) mobileBtn.textContent = label;
 
     for (const [selector, texts] of Object.entries(translations)) {
         const el = document.querySelector(selector);
