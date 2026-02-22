@@ -386,7 +386,7 @@ em {
 
 .hero__cta {
     display: flex;
-    gap: 4px 16px;
+    gap: 8px 16px;
     flex-wrap: wrap;
     align-items: center;
 }
