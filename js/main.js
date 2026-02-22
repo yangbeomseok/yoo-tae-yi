@@ -32,6 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---- Smooth Scroll ---- //
     initSmoothScroll();
 
+    // ---- Back to Top ---- //
+    initBackToTop();
+
+    // ---- Custom Cursor ---- //
+    initCustomCursor();
+
+    // ---- Loading Screen ---- //
+    initLoader();
+
     // ---- GSAP Animations ---- //
     if (gsapLoaded && !prefersReducedMotion) {
         initHeroAnimation();
@@ -552,3 +561,126 @@ document.addEventListener('DOMContentLoaded', () => {
         revealAllPhones();
     }
 });
+
+
+/* ================================================
+   LOADING SCREEN
+   ================================================ */
+function initLoader() {
+    const loader = document.getElementById('pageLoader');
+    if (!loader) return;
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            loader.classList.add('page-loader--hidden');
+        }, 1800);
+    });
+}
+
+
+/* ================================================
+   BACK TO TOP
+   ================================================ */
+function initBackToTop() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 600) {
+            btn.classList.add('back-to-top--visible');
+        } else {
+            btn.classList.remove('back-to-top--visible');
+        }
+    }, { passive: true });
+}
+
+
+/* ================================================
+   CUSTOM CURSOR (PC only)
+   ================================================ */
+function initCustomCursor() {
+    const cursor = document.getElementById('cursor');
+    const follower = document.getElementById('cursorFollower');
+    if (!cursor || !follower) return;
+
+    // Only on devices with fine pointer (mouse)
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    let mouseX = 0, mouseY = 0;
+    let followerX = 0, followerY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursor.style.left = mouseX - 4 + 'px';
+        cursor.style.top = mouseY - 4 + 'px';
+    });
+
+    // Smooth follower
+    function animateFollower() {
+        followerX += (mouseX - followerX) * 0.15;
+        followerY += (mouseY - followerY) * 0.15;
+        follower.style.left = followerX - 18 + 'px';
+        follower.style.top = followerY - 18 + 'px';
+        requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
+
+    // Hover effect on interactive elements
+    document.querySelectorAll('a, button, .featured__card, .gallery__item').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('cursor--hover');
+            follower.classList.add('cursor-follower--hover');
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('cursor--hover');
+            follower.classList.remove('cursor-follower--hover');
+        });
+    });
+}
+
+
+/* ================================================
+   LANGUAGE TOGGLE (KR / EN)
+   ================================================ */
+let currentLang = 'ko';
+
+const translations = {
+    // Hero
+    '.hero__label': { ko: '| 유 태 이, YOO TAE YI |', en: '| YOO TAE YI |' },
+    '.hero__name': {
+        ko: '<span class="hero__name-line">안녕하세요,</span><span class="hero__name-line">모든 순간에 진심을 담는</span><span class="hero__name-line">배우 <em>유태이</em>입니다.</span>',
+        en: '<span class="hero__name-line">Hello,</span><span class="hero__name-line">I put sincerity into every moment.</span><span class="hero__name-line">I am actor <em>Yoo Tae Yi</em>.</span>'
+    },
+    '.hero__subtitle': {
+        ko: '진심은 반드시 전해진다고 믿습니다.<br>당신의 작품에 온 마음을 다하겠습니다.',
+        en: 'I believe sincerity always reaches the audience.<br>I will dedicate my heart to your project.'
+    },
+    // About
+    '.about__heading': {
+        ko: '영화, 드라마, 그리고<br><em>무대 위의 이야기</em>를 전합니다.',
+        en: 'Telling stories through<br>film, drama, and <em>the stage</em>.'
+    },
+    // Featured
+    '.featured__heading': { ko: '주요 <em>출연작</em>', en: 'Featured <em>Works</em>' },
+    // Filmography
+    '.filmography__heading': { ko: '다양한 캐릭터, <em>기억에 남는</em> 연기', en: 'Diverse characters, <em>memorable</em> performances' },
+    // Gallery
+    '.gallery__heading': { ko: '다양한 <em>모습</em>', en: 'Various <em>Looks</em>' },
+    // Contact
+    '.contact__heading': {
+        ko: '새로운 작품에<br><em>함께하겠습니다.</em>',
+        en: 'Ready for<br><em>new projects.</em>'
+    },
+};
+
+function toggleLang() {
+    const btn = document.getElementById('langToggle');
+    currentLang = currentLang === 'ko' ? 'en' : 'ko';
+    btn.textContent = currentLang === 'ko' ? 'EN' : 'KR';
+
+    for (const [selector, texts] of Object.entries(translations)) {
+        const el = document.querySelector(selector);
+        if (el) {
+            el.innerHTML = texts[currentLang];
+        }
+    }
+}

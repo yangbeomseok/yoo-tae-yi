@@ -1604,3 +1604,166 @@ em {
         padding-left: 0;
     }
 }
+
+/* ================================================
+   LOADING SCREEN
+   ================================================ */
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.page-loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.page-loader__content {
+    text-align: center;
+}
+
+.page-loader__text {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    color: var(--text-heading);
+    letter-spacing: 8px;
+    opacity: 0;
+    animation: loaderFadeIn 1s ease 0.2s forwards;
+}
+
+.page-loader__sub {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    color: var(--accent);
+    margin-top: 12px;
+    opacity: 0;
+    animation: loaderFadeIn 1s ease 0.6s forwards;
+}
+
+@keyframes loaderFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================================
+   CUSTOM CURSOR (PC only)
+   ================================================ */
+.cursor {
+    display: none;
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    transition: transform 0.1s ease;
+    mix-blend-mode: difference;
+}
+
+.cursor-follower {
+    display: none;
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99997;
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+    opacity: 0.5;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .cursor, .cursor-follower {
+        display: block;
+    }
+
+    body {
+        cursor: none;
+    }
+
+    a, button, .featured__card, .gallery__item {
+        cursor: none;
+    }
+}
+
+.cursor--hover {
+    transform: scale(2);
+}
+
+.cursor-follower--hover {
+    width: 50px;
+    height: 50px;
+    opacity: 0.3;
+}
+
+/* ================================================
+   BACK TO TOP BUTTON
+   ================================================ */
+.back-to-top {
+    position: fixed;
+    bottom: 90px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    background: rgba(196, 162, 101, 0.15);
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 800;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+}
+
+.back-to-top--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+}
+
+/* ================================================
+   LANGUAGE TOGGLE
+   ================================================ */
+.nav__lang {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 4px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    margin-left: 20px;
+    position: relative;
+    z-index: 1100;
+}
+
+.nav__lang:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+}
