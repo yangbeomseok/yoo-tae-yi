@@ -390,6 +390,12 @@ em {
     flex-wrap: wrap;
 }
 
+.hero__cta-contact {
+    flex-basis: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
 /* Stats - right side */
 .hero__stats {
     position: absolute;
