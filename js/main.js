@@ -474,17 +474,23 @@ function closeVideoLightbox(event) {
 /* ================================================
    PHONE NUMBER LOCK
    ================================================ */
+const _p = [48,49,48,45,57,56,51,51,45,49,50,54,56];
+const _k = '3108';
+
+function _d() {
+    return _p.map(c => String.fromCharCode(c)).join('');
+}
+
 function unlockPhone(el) {
-    // Already unlocked this session
     if (sessionStorage.getItem('phoneUnlocked') === 'true') {
         revealAllPhones();
         return;
     }
 
     const pwd = prompt('비밀번호를 입력하세요');
-    if (pwd === null) return; // cancelled
+    if (pwd === null) return;
 
-    if (pwd === '3108') {
+    if (pwd === _k) {
         sessionStorage.setItem('phoneUnlocked', 'true');
         revealAllPhones();
     } else {
@@ -493,21 +499,20 @@ function unlockPhone(el) {
 }
 
 function revealAllPhones() {
+    const num = _d();
     document.querySelectorAll('.phone-locked').forEach(el => {
         el.classList.remove('phone-locked');
         el.onclick = null;
-        // Update display text
         const span = el.querySelector('span');
         if (span) {
-            span.textContent = '010-9833-1268';
+            span.textContent = num;
         } else {
-            el.textContent = '010-9833-1268';
+            el.textContent = num;
         }
-        el.href = 'tel:010-9833-1268';
+        el.href = 'tel:' + num;
     });
 }
 
-// Auto-reveal if already unlocked this session
 document.addEventListener('DOMContentLoaded', () => {
     if (sessionStorage.getItem('phoneUnlocked') === 'true') {
         revealAllPhones();
