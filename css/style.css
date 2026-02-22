@@ -1450,6 +1450,11 @@ em {
         order: 3;
     }
 
+    .contact__heading {
+        margin-top: 8px;
+        margin-bottom: 28px;
+    }
+
     .contact__image {
         max-width: 350px;
         margin: 0 auto;
