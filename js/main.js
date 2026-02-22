@@ -509,7 +509,7 @@ function closeVideoLightbox(event) {
    PHONE NUMBER LOCK
    ================================================ */
 const _p = [48,49,48,45,57,56,51,51,45,49,50,54,56];
-const _k = '3108';
+const _k = [51,49,48,56].map(c => String.fromCharCode(c)).join('');
 
 function _d() {
     return _p.map(c => String.fromCharCode(c)).join('');
