@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유태이 | 배우 포트폴리오</title>
+    <meta name="description" content="배우 유태이 공식 포트폴리오. 영화, 드라마, 연극 배우. Film, Drama & Theater Actor.">
+    <meta property="og:title" content="유태이 | 배우 포트폴리오">
+    <meta property="og:description" content="영화 · 드라마 · 연극 배우 유태이의 공식 포트폴리오 웹사이트">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="nav" id="nav">
+        <div class="nav__container">
+            <a href="#hero" class="nav__logo">YOO TAE YI</a>
+            <ul class="nav__menu" id="navMenu">
+                <li><a href="#about" class="nav__link">ABOUT ME</a></li>
+                <li><a href="#featured" class="nav__link">GALLERY</a></li>
+                <li><a href="#filmography" class="nav__link">FILMOGRAPHY</a></li>
+                <li><a href="#contact" class="nav__link">CONTACT</a></li>
+            </ul>
+            <button class="nav__hamburger" id="hamburger" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Fullscreen Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu__list">
+            <li><a href="#about" class="mobile-menu__link">ABOUT ME</a></li>
+            <li><a href="#featured" class="mobile-menu__link">GALLERY</a></li>
+            <li><a href="#filmography" class="mobile-menu__link">FILMOGRAPHY</a></li>
+            <li><a href="#contact" class="mobile-menu__link">CONTACT</a></li>
+        </ul>
+        <div class="mobile-menu__contact">
+            <a href="tel:010-9833-1268">010-9833-1268</a>
+            <a href="mailto:didqodn318@naver.com">didqodn318@naver.com</a>
+        </div>
+    </div>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="hero">
+        <!-- Full-bleed background photo -->
+        <div class="hero__photo">
+            <img src="assets/images/taeyiprofile.png" alt="배우 유태이 프로필 사진" loading="eager">
+        </div>
+
+        <!-- Text content (overlaps photo) -->
+        <div class="hero__content">
+            <p class="hero__label anim-fade">| 유 태 이, YOO TAE YI |</p>
+            <h1 class="hero__name">
+                <span class="hero__name-line">안녕하세요,</span>
+                <span class="hero__name-line">영화, 드라마, 연극배우</span>
+                <span class="hero__name-line"><em>유태이</em>입니다.</span>
+            </h1>
+            <p class="hero__subtitle anim-fade">새로운 작품에 함께할 준비가 되어 있습니다.</p>
+            <div class="hero__cta anim-fade">
+                <a href="https://www.youtube.com/@tapeyoo" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    연기영상 보기
+                </a>
+                <a href="#contact" class="btn btn--outline">연락하기</a>
+            </div>
+        </div>
+
+        <!-- Stats (right side) -->
+        <div class="hero__stats">
+            <div class="hero__stat anim-fade">
+                <!-- Film reel icon -->
+                <div class="hero__stat-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><circle cx="12" cy="5" r="1.2"/><circle cx="12" cy="19" r="1.2"/><circle cx="5" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></svg>
+                </div>
+                <span class="hero__stat-number" data-count="3">0</span><span class="hero__stat-plus">+</span>
+                <span class="hero__stat-label">영화</span>
+            </div>
+            <div class="hero__stat anim-fade">
+                <span class="hero__stat-number" data-count="6">0</span><span class="hero__stat-plus">+</span>
+                <span class="hero__stat-label">드라마</span>
+            </div>
+            <div class="hero__stat anim-fade">
+                <span class="hero__stat-number" data-count="3">0</span><span class="hero__stat-plus">+</span>
+                <span class="hero__stat-label">연극·뮤지컬</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Sticky Contact Bar (follows scroll) -->
+    <div class="sticky-contact" id="stickyContact">
+        <div class="sticky-contact__inner">
+            <div class="sticky-contact__group">
+                <div class="sticky-contact__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="sticky-contact__text">
+                    <span class="sticky-contact__title">CONTACT INFORMATION</span>
+                    <div class="sticky-contact__links">
+                        <a href="tel:010-9833-1268">010-9833-1268</a>
+                        <a href="mailto:didqodn318@naver.com">didqodn318@naver.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sticky-contact__group">
+                <div class="sticky-contact__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </div>
+                <div class="sticky-contact__text">
+                    <span class="sticky-contact__title">SNS</span>
+                    <div class="sticky-contact__links">
+                        <a href="https://www.instagram.com/_uxodl/" target="_blank" rel="noopener noreferrer">@_uxodl</a>
+                        <a href="https://www.youtube.com/@tapeyoo" target="_blank" rel="noopener noreferrer">@tapeyoo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sticky-contact__social">
+                <a href="https://www.instagram.com/_uxodl/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@tapeyoo" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section class="about" id="about">
+        <div class="about__container">
+            <p class="section-label anim-slide">| ABOUT ME |</p>
+            <div class="about__grid">
+                <div class="about__image-wrapper anim-fade">
+                    <div class="about__image">
+                        <img src="assets/images/taeyiprofile2.png" alt="배우 유태이" loading="lazy">
+                    </div>
+                </div>
+                <div class="about__content">
+                    <h2 class="about__heading anim-fade">
+                        영화, 드라마, 그리고<br>
+                        <em>무대 위의 이야기</em>를 전합니다.
+                    </h2>
+                    <p class="about__text anim-fade">
+                        청주대학교 연극학과에서 연기의 기본기를 다지고<br>
+                        다양한 장르의 작품에 도전하며 성장해 왔습니다.<br>
+                        장편영화부터 Disney+, JTBC 드라마, 그리고 무대까지,<br>
+                        매 작품마다 진정성 있는 캐릭터를 만들어갑니다.
+                    </p>
+                    <p class="about__text anim-fade">
+                        부천국제판타스틱영화제 초청 작품에 출연하며 가능성을 인정받았고,<br>
+                        2026년에는 Disney+ &lt;재혼황후&gt;와 JTBC &lt;신의 구슬&gt;로 새로운 도약을 준비하고 있습니다.
+                    </p>
+
+                    <div class="about__details anim-fade">
+                        <div class="about__detail-item">
+                            <span class="about__detail-label">생년월일</span>
+                            <span class="about__detail-value">1998년 3월 18일</span>
+                        </div>
+                        <div class="about__detail-item">
+                            <span class="about__detail-label">신체</span>
+                            <span class="about__detail-value">183cm / 73kg</span>
+                        </div>
+                        <div class="about__detail-item">
+                            <span class="about__detail-label">MBTI</span>
+                            <span class="about__detail-value">ENFJ</span>
+                        </div>
+                        <div class="about__detail-item">
+                            <span class="about__detail-label">학력</span>
+                            <span class="about__detail-value">청주대학교 연극학과 학사</span>
+                        </div>
+                    </div>
+
+                    <div class="about__skills anim-fade">
+                        <span class="badge">부산사투리</span>
+                        <span class="badge">영어 회화 (중상급)</span>
+                        <span class="badge">액션 연기</span>
+                        <span class="badge">운전 (1종 보통)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FEATURED WORKS SECTION ========== -->
+    <section class="featured" id="featured">
+        <div class="featured__container">
+            <p class="section-label anim-slide">| FEATURED WORKS |</p>
+            <h2 class="featured__heading anim-fade">
+                주목할 <em>작품들</em>
+            </h2>
+        </div>
+
+        <div class="featured__cards">
+            <!-- Card 1: Disney+ 재혼황후 -->
+            <div class="featured__card anim-fade">
+                <div class="featured__card-bg featured__card-bg--1"></div>
+                <div class="featured__card-overlay"></div>
+                <div class="featured__card-content">
+                    <span class="featured__card-badge">방영 예정</span>
+                    <span class="featured__card-year">2025</span>
+                    <h3 class="featured__card-title">재혼황후</h3>
+                    <p class="featured__card-platform">Disney+</p>
+                    <p class="featured__card-role">알바니 용병 역</p>
+                </div>
+            </div>
+
+            <!-- Card 2: 태권도의 저주를 풀어줘 -->
+            <div class="featured__card anim-fade">
+                <div class="featured__card-bg featured__card-bg--2"></div>
+                <div class="featured__card-overlay"></div>
+                <div class="featured__card-content">
+                    <span class="featured__card-badge featured__card-badge--festival">부천국제판타스틱영화제</span>
+                    <span class="featured__card-year">2024</span>
+                    <h3 class="featured__card-title">태권도의 저주를 풀어줘</h3>
+                    <p class="featured__card-platform">장편영화 / Tving</p>
+                    <p class="featured__card-role">남성민 역</p>
+                </div>
+            </div>
+
+            <!-- Card 3: JTBC 신의 구슬 -->
+            <div class="featured__card anim-fade">
+                <div class="featured__card-bg featured__card-bg--3"></div>
+                <div class="featured__card-overlay"></div>
+                <div class="featured__card-content">
+                    <span class="featured__card-badge">방영 예정</span>
+                    <span class="featured__card-year">2025</span>
+                    <h3 class="featured__card-title">신의 구슬</h3>
+                    <p class="featured__card-platform">JTBC</p>
+                    <p class="featured__card-role">병사 역</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FILMOGRAPHY SECTION ========== -->
+    <section class="filmography" id="filmography">
+        <div class="filmography__container">
+            <p class="section-label anim-slide">| FILMOGRAPHY |</p>
+            <h2 class="filmography__heading anim-fade">
+                다양한 캐릭터, <em>기억에 남는</em> 연기
+            </h2>
+
+            <!-- Mobile Tabs -->
+            <div class="filmography__tabs">
+                <button class="filmography__tab filmography__tab--active" data-tab="film">영화</button>
+                <button class="filmography__tab" data-tab="drama">드라마</button>
+                <button class="filmography__tab" data-tab="theater">연극/뮤지컬</button>
+            </div>
+
+            <div class="filmography__grid">
+                <!-- 영화 -->
+                <div class="filmography__column" data-category="film">
+                    <h3 class="filmography__category-title anim-fade">영화</h3>
+                    <ul class="filmography__list">
+                        <li class="filmography__item anim-wipe">
+                            <span class="filmography__year">2024</span>
+                            <div class="filmography__info">
+                                <span class="filmography__title">태권도의 저주를 풀어줘</span>
+                                <span class="filmography__role">남성민</span>
+                                <span class="filmography__note">장편 · 부천국제판타스틱영화제</span>
+                            </div>
+                        </li>
+                        <li class="filmography__item anim-wipe">
+                            <span class="filmography__year">2022</span>
+                            <div class="filmography__info">
+                                <span class="filmography__title">심판</span>
+                                <span class="filmography__role">김건우</span>
+                                <span class="filmography__note">단편 · 부천국제판타스틱영화제</span>
+                            </div>
+                        </li>
+                        <li class="filmography__item anim-wipe">
+                            <span class="filmography__year">2021</span>
+                            <div class="filmography__info">
+                                <span class="filmography__title">미인</span>
+                                <span class="filmography__role">이형민</span>
+                                <span class="filmography__note">단편</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 드라마 -->
+                <div class="filmography__column" data-category="drama">
+                    <h3 class="filmography__category-title anim-fade">드라마</h3>
+                    <ul class="filmography__list">
+                        <li class="filmography__item anim-wipe">
+                            <span class="filmography__year">2025</span>
+                            <div class="filmography__info">
+                                <span class="filmography__title">재혼황후</span>
+                                <span class="filmography__role">알바니 용병</span>
+                                <span class="filmography__note">Disney+ · 방영 예정</span>
+                            </div>
+                        </li>
+                        <li class="filmography__item anim-wipe">
+                            <span class="filmography__year">2025</span>
+                            <div class="filmography__info">
+                                <span class="filmography__title">신의 구슬</span>
+                                <span class="filmography__role">병사</span>
+                                <span class="filmography__note">JTBC · 방영 예정</span>
+                            </div>
+                        </li>
+                        <li class="filmography__item anim-wipe">
+                            <span class="filmography__year">2025</span>
+                            <div class="filmography__info">
+                                <span class="filmography__title">맹감독의 악플러</span>
+                                <span class="filmography__role">경찰</span>
+                                <span class="filmography__note">MBC</span>
+                            </div>
+                        </li>
+                        <li class="filmography__item anim-wipe">
+                            <span class="filmography__year">2024</span>
+                            <div class="filmography__info">
+                                <span class="filmography__title">태권도의 저주를 풀어줘</span>
+                                <span class="filmography__role">남성민</span>
+                                <span class="filmography__note">Tving</span>
+                            </div>
+                        </li>
+                        <li class="filmography__item anim-wipe">
+                            <span class="filmography__year">2024</span>
+                            <div class="filmography__info">
+                                <span class="filmography__title">낮과 밤이 다른 그녀</span>
+                                <span class="filmography__role">신입검찰</span>
+                                <span class="filmography__note">JTBC</span>
+                            </div>
+                        </li>
+                        <li class="filmography__item anim-wipe">
+                            <span class="filmography__year">2023</span>
+                            <div class="filmography__info">
+                                <span class="filmography__title">초식물남</span>
+                                <span class="filmography__role">헌팅남</span>
+                                <span class="filmography__note">YouTube</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 연극/뮤지컬 -->
+                <div class="filmography__column" data-category="theater">
+                    <h3 class="filmography__category-title anim-fade">연극 / 뮤지컬</h3>
+                    <ul class="filmography__list">
+                        <li class="filmography__item anim-wipe">
+                            <span class="filmography__year">2025</span>
+                            <div class="filmography__info">
+                                <span class="filmography__title">Rite of Now</span>
+                                <span class="filmography__role">&nbsp;</span>
+                            </div>
+                        </li>
+                        <li class="filmography__item anim-wipe">
+                            <span class="filmography__year">2023</span>
+                            <div class="filmography__info">
+                                <span class="filmography__title">광부화가들</span>
+                                <span class="filmography__role">&nbsp;</span>
+                            </div>
+                        </li>
+                        <li class="filmography__item anim-wipe">
+                            <span class="filmography__year">2020</span>
+                            <div class="filmography__info">
+                                <span class="filmography__title">귀환</span>
+                                <span class="filmography__role">&nbsp;</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section class="contact" id="contact">
+        <div class="contact__container">
+            <div class="contact__image-wrapper anim-fade">
+                <div class="contact__image">
+                    <img src="assets/images/taeyiprofile3.png" alt="배우 유태이" loading="lazy">
+                </div>
+            </div>
+            <div class="contact__content">
+                <p class="section-label anim-slide">| CONTACT |</p>
+                <h2 class="contact__heading anim-fade">
+                    새로운 작품에<br>
+                    <em>함께하겠습니다.</em>
+                </h2>
+                <div class="contact__info anim-fade">
+                    <a href="tel:010-9833-1268" class="contact__info-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>010-9833-1268</span>
+                    </a>
+                    <a href="mailto:didqodn318@naver.com" class="contact__info-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <span>didqodn318@naver.com</span>
+                    </a>
+                    <a href="https://www.instagram.com/_uxodl/" target="_blank" rel="noopener noreferrer" class="contact__info-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        <span>@_uxodl</span>
+                    </a>
+                    <a href="https://www.youtube.com/@tapeyoo" target="_blank" rel="noopener noreferrer" class="contact__info-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        <span>@tapeyoo</span>
+                    </a>
+                </div>
+                <div class="contact__buttons anim-fade">
+                    <a href="https://www.youtube.com/@tapeyoo" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        연기영상 보기
+                    </a>
+                    <a href="#" class="btn btn--outline btn--disabled" aria-disabled="true">
+                        출연영상 (준비중)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__top">
+                <a href="#hero" class="footer__logo">YOO TAE YI</a>
+                <nav class="footer__nav">
+                    <a href="#about">ABOUT ME</a>
+                    <a href="#featured">GALLERY</a>
+                    <a href="#filmography">FILMOGRAPHY</a>
+                    <a href="#contact">CONTACT</a>
+                </nav>
+                <div class="footer__social">
+                    <a href="https://www.instagram.com/_uxodl/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@tapeyoo" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 YOO TAE YI. All Rights Reserved.</p>
+                <p class="footer__credit">Designed & Built by Beomseok Yang</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Fixed CTA -->
+    <div class="mobile-cta" id="mobileCta">
+        <a href="#contact" class="mobile-cta__btn">연락하기</a>
+    </div>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
