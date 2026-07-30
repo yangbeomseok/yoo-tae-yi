@@ -872,8 +872,7 @@ em {
 
 .gallery__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto;
+    grid-template-columns: 4fr 9fr;
     gap: 16px;
 }
 
@@ -881,7 +880,14 @@ em {
     position: relative;
     overflow: hidden;
     border-radius: 4px;
-    aspect-ratio: 3 / 4;
+}
+
+.gallery__item--portrait {
+    aspect-ratio: 2 / 3;
+}
+
+.gallery__item--landscape {
+    aspect-ratio: 3 / 2;
 }
 
 .gallery__item img {
@@ -1371,13 +1377,8 @@ em {
     }
 
     .gallery__grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 10px;
-    }
-
-    .gallery__item {
-        aspect-ratio: auto;
-        height: 200px;
     }
 
     /* Filmography */
